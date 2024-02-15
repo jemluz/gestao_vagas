@@ -15,13 +15,13 @@ public class CandidateEntity {
   private UUID id;
   private String name;
 
-  @Pattern(regexp = "^(?!\\s*$).+", message = "O campo [username] não deve conter espaços.")
+  @Pattern(regexp = "\\S+", message = "O campo [username] não deve conter espaços.")
   private String username;
 
   @Email(message = "O campo [email] deve conter um e-mail válido.")
   private String email;
 
-  @Length(min = 10, max = 32)
+  @Length(min = 10, max = 32, message = "A senha deve conter entre 10 e 32 caracteres.")
   private String password;
   private String description;
   private String curriculum;
