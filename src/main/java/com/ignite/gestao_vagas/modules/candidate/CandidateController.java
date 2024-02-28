@@ -1,9 +1,8 @@
-package com.ignite.gestao_vagas.modules.candidate.controllers;
+package com.ignite.gestao_vagas.modules.candidate;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ignite.gestao_vagas.modules.candidate.CandidateEntity;
 import com.ignite.gestao_vagas.modules.candidate.useCases.CreateCandidateUseCase;
 
 import jakarta.validation.Valid;
