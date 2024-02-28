@@ -25,8 +25,9 @@ public class JobEntity {
   private String benefits;
   private String level;
 
+  //  only available for reading
   @ManyToOne
-  @JoinColumn(name = "company_id")
+  @JoinColumn(name = "company_id", insertable = false, updatable = false)
   private CompanyEntity companyEntity;
 
   @Column(name = "company_id")
