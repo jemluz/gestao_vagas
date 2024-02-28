@@ -3,7 +3,7 @@ package com.ignite.gestao_vagas.modules.candidate.useCases;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ignite.gestao_vagas.exceptions.UserFoundException;
+import com.ignite.gestao_vagas.exceptions.EntityFoundException;
 import com.ignite.gestao_vagas.modules.candidate.CandidateEntity;
 import com.ignite.gestao_vagas.modules.candidate.CandidateRepository;
 
@@ -13,11 +13,18 @@ public class CreateCandidateUseCase {
   @Autowired
   private CandidateRepository candidateRepository;
 
-  public CandidateEntity execute(CandidateEntity candidateEntity) {
-    this.candidateRepository.findByUsernameOrEmail(candidateEntity.getUsername(), candidateEntity.getEmail()).ifPresent(user -> {
-      throw new UserFoundException();
-    });
+  public CandidateEntity execute(CandidateEntity newCandidateEntity) {
+    String username = newCandidateEntity.getUsername();
+    String email = newCandidateEntity.getEmail();
 
-    return this.candidateRepository.save(candidateEntity);
+    this.candidateRepository
+      .findByUsernameOrEmail(username, email)
+      .ifPresent(
+        user -> {
+          throw new EntityFoundException("Candidate");
+        }
+      );
+
+    return this.candidateRepository.save(newCandidateEntity);
   }
 }

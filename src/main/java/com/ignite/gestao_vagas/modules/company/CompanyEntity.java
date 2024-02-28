@@ -25,7 +25,7 @@ public class CompanyEntity {
 
   @NotBlank
   @Pattern(regexp = "\\S+", message = "O campo [company_name] não deve conter espaço")
-  private String company_name;
+  private String companyName;
 
   @Email(message = "O campo [email] deve conter um e-mail válido")
   private String email;
