@@ -24,13 +24,13 @@ public class CompanyEntity {
   private UUID id;
 
   @NotBlank
-  @Pattern(regexp = "\\S+", message = "O campo [company_name] não deve conter espaço")
+  @Pattern(regexp = "\\S+", message = "The field [companyName] must not contain spaces.")
   private String companyName;
 
-  @Email(message = "O campo [email] deve conter um e-mail válido")
+  @Email(message = "The field [email] must contain a valid email.")
   private String email;
 
-  @Length(min = 10, max = 100, message = "A senha deve conter entre (10) e (100) caracteres")
+  @Length(min = 10, max = 100, message = "The password must contain between 10 and 32 characters.")
   private String password;
 
   private String name;

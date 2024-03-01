@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ignite.gestao_vagas.modules.company.useCases.CreateCompanyUseCase;
 
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,7 @@ public class CompanyController {
 
   @PostMapping("/")
   public ResponseEntity<Object> create(
-    @RequestBody CompanyEntity newCompanyEntity
+    @Valid @RequestBody CompanyEntity newCompanyEntity
   ) {
 
     try {
