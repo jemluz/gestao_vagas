@@ -25,6 +25,7 @@ public class CompanyController {
     @Valid @RequestBody CompanyEntity newCompanyEntity
   ) {
 
+    // try to execute company's creation and return success or error
     try {
 
       var result = this.createCompanyUseCase.execute(newCompanyEntity);

@@ -25,6 +25,7 @@ public class CandidateController {
     @Valid @RequestBody CandidateEntity candidateEntity
   ) {
 
+    // try to execute candidate's creation and return success or error
     try {
 
       var result = createCandidateUseCase.execute(candidateEntity);

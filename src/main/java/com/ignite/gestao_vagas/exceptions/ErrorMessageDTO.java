@@ -7,6 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ErrorMessageDTO {
 
+  // use to pattern up error returns
   private String message;
   private String field;
 

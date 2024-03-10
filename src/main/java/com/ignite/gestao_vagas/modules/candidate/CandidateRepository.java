@@ -9,6 +9,7 @@ public interface CandidateRepository extends JpaRepository<
   CandidateEntity, UUID
 > {
 
+  // will be use to validade if entity already exists
   Optional<CandidateEntity> findByUsernameOrEmail(
     String username, String email
   );

@@ -17,6 +17,7 @@ public class CreateCandidateUseCase {
     String username = newCandidateEntity.getUsername();
     String email = newCandidateEntity.getEmail();
 
+    // heck if newCandidate's data is already being in db
     this.candidateRepository
       .findByUsernameOrEmail(username, email)
       .ifPresent(
@@ -25,6 +26,7 @@ public class CreateCandidateUseCase {
         }
       );
 
+    // if is not exists above, create
     return this.candidateRepository.save(newCandidateEntity);
   }
 }
